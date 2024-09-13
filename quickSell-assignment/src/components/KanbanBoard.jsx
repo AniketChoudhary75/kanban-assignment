@@ -2,18 +2,18 @@ import React, { useState, useEffect } from "react";
 import Column from "./Column";
 const KanbanBoard = () => {
     const [tickets, setTickets] = useState([]);
-    const [users, setUsers] = useState([]); // State to store user data
+    const [users, setUsers] = useState([]);
     const [grouping, setGrouping] = useState("priority");
     const [sorting, setSorting] = useState("priority");
-    const [showControls, setShowControls] = useState(false);  // State to toggle Kanban controls visibility
+    const [showControls, setShowControls] = useState(false); 
 
     useEffect(() => {
-        // Fetch tickets data
+     
         fetch("https://api.quicksell.co/v1/internal/frontend-assignment")
             .then(response => response.json())
             .then(data => {
                 setTickets(data.tickets);
-                setUsers(data.users); // Set user data
+                setUsers(data.users);
             })
             .catch(error => console.error("Error fetching data:", error));
     }, []);
@@ -57,10 +57,9 @@ const KanbanBoard = () => {
             return groups;
         }, {});
         return Object.entries(userGroups).map(([userId, groupTickets]) => {
-            // Find the corresponding user name for the userId
             const user = users.find(user => user.id === userId);
             const userName = user ? user.name : "Unknown User";
-            return [userName, groupTickets]; // Return the user name instead of the userId
+            return [userName, groupTickets]; 
         });
     };
 

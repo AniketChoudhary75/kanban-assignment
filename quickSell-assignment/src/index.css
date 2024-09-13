@@ -27,19 +27,15 @@ body {
 }
 
 .kanban-controls{
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
   padding: 10px 0;
   font-size: 16px;
   font-weight: 600;
   position: absolute;
-  background: rgb(221, 197, 197);
-  border-radius: 1%;
+  background: rgb(207, 207, 207);
+  border-radius: 2%;
   padding: 4;
-  top: 10%;
-  left: 5%;
+  top: 90%;
+  left: 0.5%;
 }
 
 /* Kanban Column */

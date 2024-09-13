@@ -5,14 +5,13 @@ import highLogo from '../assets/Img - High Priority.svg';
 import mediumLogo from '../assets/Img - Medium Priority.svg';
 import lowLogo from '../assets/Img - Low Priority.svg';
 import noPriorityLogo from '../assets/No-priority.svg';
-import plusLogo from '../assets/add.svg'; // Import plus icon
-import moreLogo from '../assets/3 dot menu.svg'; // Import more icon
+import plusLogo from '../assets/add.svg'; 
+import moreLogo from '../assets/3 dot menu.svg'; 
 import backlogLogo from '../assets/Backlog.svg';
 import inProgressLogo from '../assets/in-progress.svg';
 import todoLogo from '../assets/To-do.svg';
 
 
-// Function to map priority number to priority labels
 const getPriorityLabel = (priority) => {
     switch (priority) {
         case 4:
@@ -53,7 +52,6 @@ const getPriorityLabel = (priority) => {
     }
 };
 
-// Function to map status to its logo, including new "Canceled" and "Done" statuses
 const getStatusLabel = (status) => {
     switch (status) {
         case "Todo":
@@ -92,19 +90,19 @@ const getStatusLabel = (status) => {
                 </div>
             );
         default:
-            return status; // Return status without a logo if not specified
+            return status; 
     }
 };
 
 const Column = ({ groupTitle, tickets, grouping }) => {
-    // Determine whether to display priority label, user name, or status
+
     const displayGroupTitle = () => {
         if (grouping === "priority") {
             return getPriorityLabel(parseInt(groupTitle));
         } else if (grouping === "user") {
-            return groupTitle === 'null' ? 'Unassigned' : groupTitle; // Display "Unassigned" if no user
+            return groupTitle === 'null' ? 'Unassigned' : groupTitle;
         } else if (grouping === "status") {
-            return getStatusLabel(groupTitle); // Display logo + status when grouping by status
+            return getStatusLabel(groupTitle);
         }
     };
 
@@ -112,7 +110,7 @@ const Column = ({ groupTitle, tickets, grouping }) => {
         <div className="kanban-column">
             <div className="column-header">
                 <h2>{displayGroupTitle()}</h2>
-                <span>{tickets.length} </span> {/* Display count of todos */}
+                <span>{tickets.length} </span> 
                 <div className="column-icons">
                     <img src={plusLogo} alt="Add" className="column-icon" />
                     <img src={moreLogo} alt="More Options" className="column-icon" />
